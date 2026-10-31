@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanzim Mali — Financing Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="brand">
+            <div class="brand-icon">TM</div>
+            <div>
+                <h1>Tanzim Mali</h1>
+                <span>Islamic Finance</span>
+            </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:10px;">
+            <span id="service-version" class="prototype-label">compliance-service v—</span>
+            <button
+                id="admin-toggle"
+                class="prototype-label"
+                style="cursor:pointer; border:1px solid var(--border);"
+            >
+                ⚙ Admin
+            </button>
+        </div>
+    </header>
+
+
+    <!-- Progress -->
+    <div class="progress-wrapper">
+        <div class="progress-step active" data-step="1">
+            <span>1</span>
+            <p>Application</p>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step" data-step="2">
+            <span>2</span>
+            <p>AI Review</p>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step" data-step="3">
+            <span>3</span>
+            <p>Sharia Board</p>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step" data-step="4">
+            <span>4</span>
+            <p>Decision</p>
+        </div>
+    </div>
+
+
+    <main>
+
+        <!-- ========================= -->
+        <!-- SCREEN 1 — Application    -->
+        <!-- ========================= -->
+
+        <section id="screen-1" class="screen active">
+
+            <div class="page-heading">
+                <span class="eyebrow">FINANCING APPLICATION</span>
+                <h2>Business Financing Application</h2>
+                <p>
+                    Provide the basic information needed for a preliminary
+                    Sharia compliance review.
+                </p>
+            </div>
+
+            <div class="card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Business information</h3>
+                        <p>All information below is fictional for this prototype.</p>
+                    </div>
+
+                    <span class="status neutral">Draft</span>
+                </div>
+
+                <form id="application-form">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="business-name">Business name</label>
+                            <input
+                                id="business-name"
+                                type="text"
+                                value="Adil Trade LLP"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="amount">Financing amount</label>
+                            <div class="input-prefix">
+                                <span>₸</span>
+                                <input
+                                    id="amount"
+                                    type="text"
+                                    value="5,000,000"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="purpose">Financing purpose</label>
+                            <select id="purpose">
+                                <option selected>Working capital</option>
+                                <option>Equipment purchase</option>
+                                <option>Inventory purchase</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="structure">Financing structure</label>
+                            <select id="structure">
+                                <option selected>Murabaha</option>
+                                <option>Ijara</option>
+                                <option>Mudarabah</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="documents">Contract / document information</label>
+                        <textarea id="documents" rows="5">Murabaha agreement for purchase of inventory. The institution purchases the goods and resells them to the business at a disclosed cost plus agreed profit margin. Payment will be made in installments.</textarea>
+                        <span class="helper">
+                            Include relevant information about the proposed contract.
+                        </span>
+                    </div>
+
+                    <div class="notice info">
+                        <div class="notice-icon">i</div>
+                        <div>
+                            <strong>Before you submit</strong>
+                            <p>
+                                The application will first receive an automated
+                                preliminary compliance analysis. A Sharia board
+                                member will make the final decision.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="button primary">
+                            Submit Application
+                            <span>→</span>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SCREEN 2 — AI Review      -->
+        <!-- ========================= -->
+
+        <section id="screen-2" class="screen">
+
+            <div class="page-heading">
+                <span class="eyebrow">STEP 2 OF 4</span>
+                <h2>AI Compliance Review</h2>
+                <p>
+                    A preliminary analysis has been generated from the
+                    submitted application.
+                </p>
+            </div>
+
+            <div class="ai-banner">
+                <div class="ai-icon">✦</div>
+                <div>
+                    <strong>AI preliminary analysis completed</strong>
+                    <p>
+                        The system identified several points for human review.
+                    </p>
+                </div>
+                <span class="status processing">Preliminary</span>
+            </div>
+
+            <div class="card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Compliance findings</h3>
+                        <p id="application-id-label">Application #—</p>
+                    </div>
+                    <span id="service-version-inline" class="prototype-label">v—</span>
+                </div>
+
+                <!-- Dynamically populated by script.js -->
+                <div class="findings" id="findings-container">
+                    <!-- populated dynamically -->
+                </div>
+
+                <!-- Explainability panel (adjustment #2) -->
+                <div class="explanation">
+                    <div class="explanation-title">
+                        <span>✦</span>
+                        <strong>AI explanation</strong>
+                    </div>
+                    <p id="ai-rationale">—</p>
+                    <p id="rules-applied" class="helper">—</p>
+                </div>
+
+                <div class="important-warning">
+                    <strong>Important</strong>
+                    <p>
+                        This is a preliminary AI analysis and is not a final
+                        Sharia ruling.
+                    </p>
+                </div>
+
+                <div class="form-actions">
+                    <button id="send-board" class="button primary">
+                        Send to Sharia Board
+                        <span>→</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SCREEN 3 — Sharia Board   -->
+        <!-- ========================= -->
+
+        <section id="screen-3" class="screen">
+
+            <div class="page-heading">
+                <span class="eyebrow">STEP 3 OF 4</span>
+                <h2>Sharia Board Review</h2>
+                <p>
+                    A qualified human reviewer makes the final compliance
+                    decision.
+                </p>
+            </div>
+
+            <div class="human-review-banner">
+                <div class="reviewer-icon">👤</div>
+                <div>
+                    <strong>Human review required</strong>
+                    <p>
+                        The AI analysis is advisory only. The Sharia Board
+                        member below has final decision authority.
+                    </p>
+                </div>
+            </div>
+
+            <div class="review-layout">
+
+                <!-- Application details -->
+                <div class="card">
+
+                    <div class="card-header">
+                        <div>
+                            <h3>Application details</h3>
+                            <p id="application-id-label-3">Application #—</p>
+                        </div>
+                        <span class="status processing">Awaiting Review</span>
+                    </div>
+
+                    <div class="detail-list">
+                        <div class="detail-row">
+                            <span>Business</span>
+                            <strong id="detail-business">—</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span>Amount</span>
+                            <strong id="detail-amount">—</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span>Purpose</span>
+                            <strong id="detail-purpose">—</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span>Structure</span>
+                            <strong id="detail-structure">—</strong>
+                        </div>
+                    </div>
+
+                    <div class="contract-box">
+                        <span>Contract information</span>
+                        <p id="detail-contract">—</p>
+                    </div>
+
+                </div>
+
+                <!-- AI Findings + decision -->
+                <div class="card">
+
+                    <div class="card-header">
+                        <div>
+                            <h3>AI preliminary findings</h3>
+                            <p>For reviewer consideration</p>
+                        </div>
+                        <span class="ai-mini">✦ AI</span>
+                    </div>
+
+                    <!-- Dynamically populated mini-findings -->
+                    <div class="mini-findings" id="mini-findings-container">
+                        <!-- populated dynamically -->
+                    </div>
+
+                    <div class="reviewer-section">
+                        <label for="reviewer-comments">Reviewer comments</label>
+                        <textarea
+                            id="reviewer-comments"
+                            rows="5"
+                            placeholder="Add your assessment or conditions..."
+                        ></textarea>
+                        <span class="helper">
+                            Your comments will be included with the final decision.
+                        </span>
+                    </div>
+
+                    <div class="decision-actions">
+                        <button
+                            id="request-changes"
+                            class="button secondary"
+                            type="button"
+                        >
+                            Request Changes
+                        </button>
+
+                        <button
+                            id="approve"
+                            class="button approve"
+                            type="button"
+                        >
+                            ✓ Approve
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="change-message" class="change-message hidden">
+                <strong>Changes requested</strong>
+                <p>
+                    The applicant would need to revise the application before
+                    it can receive a final approval.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SCREEN 4 — Decision       -->
+        <!-- ========================= -->
+
+        <section id="screen-4" class="screen">
+
+            <div class="success-page">
+
+                <div class="success-circle">✓</div>
+
+                <span class="eyebrow">STEP 4 OF 4</span>
+
+                <h2>Financing Application Approved</h2>
+
+                <p class="application-number" id="application-id-label-4">
+                    Application #—
+                </p>
+
+                <div class="card decision-card">
+
+                    <div class="final-status">
+                        <span class="status approved">
+                            Approved by Sharia Board
+                        </span>
+                    </div>
+
+                    <div class="timeline">
+
+                        <div class="timeline-item completed">
+                            <div class="timeline-icon">✓</div>
+                            <div>
+                                <strong>Application submitted</strong>
+                                <p>
+                                    Business financing information was
+                                    successfully submitted.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item completed">
+                            <div class="timeline-icon">✓</div>
+                            <div>
+                                <strong>AI preliminary analysis completed</strong>
+                                <p>
+                                    The application was checked for potential
+                                    Sharia compliance issues.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item completed">
+                            <div class="timeline-icon">✓</div>
+                            <div>
+                                <strong>Sharia board reviewed application</strong>
+                                <p>
+                                    A human reviewer evaluated the application
+                                    and AI findings.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item completed">
+                            <div class="timeline-icon">✓</div>
+                            <div>
+                                <strong>Application approved</strong>
+                                <p>
+                                    The Sharia Board approved the proposed
+                                    financing application.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="final-explanation">
+                        <strong>Final decision</strong>
+                        <p>
+                            The application was approved after human review.
+                            The AI system provided preliminary findings only
+                            and did not make the final Sharia decision.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- ADMIN PANEL (adjustment #6) -->
+    <!-- ========================= -->
+
+    <div id="admin-panel" class="admin-panel hidden">
+        <h3>⚙ Admin — Compliance Service Control</h3>
+        <p id="rules-meta" class="helper">—</p>
+
+        <button id="reload-rules" class="button primary" style="margin-top:12px;">
+            Hot-reload compliance rules
+        </button>
+
+        <p id="admin-status" class="helper" style="margin-top:8px;">—</p>
+
+        <h4 style="margin-top:18px;">Notification event log</h4>
+        <div id="notification-log" class="notification-log">No events yet.</div>
+    </div>
+
+
+    <footer>
+        <span>Tanzim Mali</span>
+        <span>HCI Interactive Prototype · Fictional demonstration</span>
+    </footer>
+
+</div>
+
+<!-- Service layer (order matters: services first, gateway, then UI) -->
+<script src="compliance-service.js"></script>
+<script src="application-service.js"></script>
+<script src="notification-service.js"></script>
+<script src="api-gateway.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

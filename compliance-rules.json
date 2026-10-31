@@ -1,0 +1,47 @@
+{
+  "serviceVersion": "1.2.0",
+  "lastUpdated": "2025-01-15",
+  "regulatorySource": "AIFC Islamic Finance Rules",
+  "rules": [
+    {
+      "id": "RIB-001",
+      "category": "Riba",
+      "regulation": "AIFC-IFR Art. 4.2",
+      "severity": "critical",
+      "description": "No interest-based charges permitted.",
+      "plainLanguage": "No interest (riba) is charged on the financing amount."
+    },
+    {
+      "id": "GHA-002",
+      "category": "Gharar",
+      "regulation": "AIFC-IFR Art. 5.1",
+      "severity": "review",
+      "description": "Contract terms must be sufficiently specific.",
+      "plainLanguage": "Contract terms must be clear enough to avoid uncertainty (gharar)."
+    },
+    {
+      "id": "MAY-001",
+      "category": "Maysir",
+      "regulation": "AIFC-IFR Art. 6.3",
+      "severity": "critical",
+      "description": "No speculative or gambling elements.",
+      "plainLanguage": "No gambling or pure speculation is involved."
+    },
+    {
+      "id": "BUS-004",
+      "category": "Business activity",
+      "regulation": "AIFC-IFR Art. 7.1",
+      "severity": "critical",
+      "description": "Business activity must be halal.",
+      "plainLanguage": "The business activity is permissible under Sharia."
+    },
+    {
+      "id": "STR-005",
+      "category": "Contract structure",
+      "regulation": "AIFC-IFR Art. 8.4",
+      "severity": "review",
+      "description": "Ownership sequence and profit margin must be documented.",
+      "plainLanguage": "The ownership sequence and profit margin must be fully documented."
+    }
+  ]
+}
